@@ -6,16 +6,14 @@ import static io.restassured.RestAssured.given;
 
 public class UserController {
 
-    public User createUser(User user) {
-        return given()
+    public void createUser(User user) {
+        given()
                 .contentType("application/json")
                 .body(user)
                 .when()
                 .post("/user")
                 .then()
-                .statusCode(200)
-                .extract()
-                .as(User.class);
+                .statusCode(200);
     }
 
     public User getUser(String username) {

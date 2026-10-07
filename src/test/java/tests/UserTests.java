@@ -27,7 +27,9 @@ public class UserTests extends BaseTest {
                 "+79999999999"
         );
 
-        User response = userController.createUser(user);
+        userController.createUser(user);
+
+        User response = userController.getUser(username);
 
         assertThat(response.getUsername())
                 .isEqualTo(username);
